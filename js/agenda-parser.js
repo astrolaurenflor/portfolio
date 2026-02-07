@@ -124,13 +124,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Let's refine based on user preference "extrae las actividades relacionadas con las Prácticas".
 
-                    let col2Content = tema;
-                    if (/^P\d+$/.test(tema)) {
-                        col2Content = tema.replace('P', 'Práctica ');
-                    }
-                    // Add description from Col 4 if it's the first session
-                    if (row[4] && row[4].includes(tema + ' -')) {
-                        col2Content += ': ' + row[4].split('-')[1].trim();
+
+                    let col2Content = "-";
+                    // Only show Topic Name if it IS a practice or explicitly P-content
+                    if (isStrictPractice || hasPContent) {
+                        col2Content = tema;
+                        if (/^P\d+$/.test(tema)) {
+                            col2Content = tema.replace('P', 'Práctica ');
+                        }
+                        // Add description from Col 4 if it's the first session
+                        if (row[4] && row[4].includes(tema + ' -')) {
+                            col2Content += ': ' + row[4].split('-')[1].trim();
+                        }
                     }
 
 
