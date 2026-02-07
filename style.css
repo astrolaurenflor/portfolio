@@ -3484,3 +3484,69 @@ input[type="button"]:disabled,
     }
 
 }
+
+/* Divulgación Cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 320px;
+    /* Fixed width per request */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(91, 45, 139, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.card-content {
+    padding: 1.5em;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 1.5em;
+    flex-grow: 1;
+    line-height: 1.5;
+    /* Limit to approx 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card .button {
+    align-self: flex-start;
+    margin-bottom: 0;
+}
