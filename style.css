@@ -3490,21 +3490,29 @@ input[type="button"]:disabled,
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2em;
+    gap: 1.5em;
+    /* Slightly smaller gap */
     margin-top: 2em;
 }
 
 .card {
     background: #ffffff;
-    border-radius: 12px;
+    border-radius: 10px;
+    /* Slightly smaller radius */
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    width: 320px;
-    /* Fixed width per request */
+    /* Strict dimensions */
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    height: 420px;
+    /* Reduced height */
+    flex: 0 0 280px;
+    box-sizing: border-box;
 }
 
 .card:hover {
@@ -3514,39 +3522,60 @@ input[type="button"]:disabled,
 
 .card-image {
     width: 100%;
-    height: 200px;
+    height: 160px;
+    /* Reduced image height */
     object-fit: cover;
     border-bottom: 1px solid #eee;
+    flex-shrink: 0;
 }
 
 .card-content {
-    padding: 1.5em;
+    padding: 1.2em;
+    /* Reduced padding */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 100%;
 }
 
 .card h4 {
     color: var(--primary-color);
     margin-bottom: 0.5em;
-    font-size: 1.1em;
+    font-size: 1em;
+    /* Slightly smaller font */
     font-weight: 700;
-}
-
-.card p {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 1.5em;
-    flex-grow: 1;
-    line-height: 1.5;
-    /* Limit to approx 3 lines */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    height: 3.3em;
+    /* Adjusted for smaller font */
+    flex-shrink: 0;
+}
+
+.card p {
+    font-size: 0.85em;
+    /* Smaller font for description */
+    color: #666;
+    margin-bottom: auto;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
 }
 
 .card .button {
     align-self: flex-start;
+    margin-top: 0.8em;
     margin-bottom: 0;
+    flex-shrink: 0;
+    font-size: 0.8em;
+    /* Smaller button text */
+    padding: 0 1.2em;
+    height: 2.5em;
+    /* Explicit button height */
+    line-height: 2.5em;
 }
